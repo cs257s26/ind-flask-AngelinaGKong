@@ -3,8 +3,8 @@ import argparse
 
 waterRegions = []
 waterCountries = []
-COUNTRYFILENAME = "./data/HH_2025_Country/Water.csv"
-REGIONFILENAME = "./data/HH_2025_Region/Water.csv"
+COUNTRYFILENAME = "ProductionCode/Water_country.csv"
+REGIONFILENAME = "ProductionCode/Water_region.csv"
 
 def main():
 	""" When you run this program, you'll pass in arguments like so:
@@ -24,6 +24,9 @@ def main():
 	
 	
 def getData(location, year) -> list: 
+
+	loadData()
+
 	result = []
 	if (location == None and year == None):
 		print("Error: No arguments provided. Please use flags -l for location and -y for year.")

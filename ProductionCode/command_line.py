@@ -3,8 +3,8 @@ import argparse
 
 waterRegions = []
 waterCountries = []
-COUNTRYFILENAME = "ProductionCode/Water_country.csv"
-REGIONFILENAME = "ProductionCode/Water_region.csv"
+# COUNTRYFILENAME = "./ProductionCode/Water_country.csv"
+# REGIONFILENAME = "./ProductionCode/Water_region.csv"
 
 def main():
 	""" When you run this program, you'll pass in arguments like so:
@@ -50,7 +50,6 @@ def getData(location, year) -> list:
 			if (row[0] == location and row[1] == year):
 				result.append(row)
 
-	
 
 	# if user does not input a location and only a year, it will return all data for countries and regions for that year
 	elif (location == None and year != None): 
@@ -91,12 +90,12 @@ def setUpParser():
 
 def loadData():
 	"""Loads in data from a CSV file and stores it in `data`"""
-	with open(COUNTRYFILENAME, newline='') as datafile:
+	with open("ProductionCode/Water_country.csv", newline='') as datafile:
 		csv_file = csv.reader(datafile)
 		for row in csv_file:
 			waterCountries.append(row)
 
-	with open(REGIONFILENAME, newline='') as datafile:
+	with open("ProductionCode/Water_region.csv", newline='') as datafile:
 		csv_file = csv.reader(datafile)
 		for row in csv_file:
 			waterRegions.append(row)

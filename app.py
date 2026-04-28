@@ -31,6 +31,7 @@ def homepage():
 @app.route('/<string:location>/<string:year>')
 def get_year_and_location_route(location: str, year: str) -> str:
     getting_year_and_location = getData(location.strip(), year.strip())
+    print(getting_year_and_location)
     return str(getting_year_and_location)
 
 # app route when a user only inputs a specific location and it'll return
@@ -38,6 +39,7 @@ def get_year_and_location_route(location: str, year: str) -> str:
 @app.route('/search/l/<string:location>')
 def get_location_information(location: str) -> str:
     getting_location_information = getData(location.strip(), None)
+    print(getting_location_information)
     return str(getting_location_information)
 
 @app.errorhandler(404)

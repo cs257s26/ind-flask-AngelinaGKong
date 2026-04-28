@@ -29,7 +29,7 @@ def getData(location, year) -> list:
 
 	result = []
 	if (location == None and year == None):
-		print("Error: No arguments provided. Please use flags -l for location and -y for year.")
+		return "Error: No arguments provided. Please use flags -l for location and -y for year."
 
 	elif (year == None and location != None):
 		for row in waterCountries:
@@ -40,7 +40,7 @@ def getData(location, year) -> list:
 				result.append(row)
 
 	elif (2000 > int(year) or int(year) > 2024):
-		print("Year outside range, please specify a year in the range 2000-2024")
+		return "Year outside range, please specify a year in the range 2000-2024"
 
 	elif (location != None and year != None):
 		for row in waterRegions:
@@ -61,7 +61,7 @@ def getData(location, year) -> list:
 				result.append(row)
 
 	if (result == []):
-		print("Country or region not found, please try again.")
+		return "Country or region not found, please try again."
 
 	return result
 

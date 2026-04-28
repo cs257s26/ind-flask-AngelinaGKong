@@ -26,20 +26,19 @@ region_data = []
 def homepage():
     return "hello, this is the homepage"
 
+# app route when a user inputs a spcific location and year to return
+# the string of the information there
 @app.route('/<string:location>/<string:year>')
-def get_year_and_location_route(location: str, year: str) -> list:
+def get_year_and_location_route(location: str, year: str) -> str:
     getting_year_and_location = getData(location.strip(), year.strip())
-    return list(getting_year_and_location)
+    return str(getting_year_and_location)
 
-
-
-@app.route('/<int:row>/<int:col>/')
-def get_cell(row: int, col: int) -> str:
-    return str(data[row][col])
-
-@app.route('/r/<int:row>/')
-def get_row(row: int) -> str:
-    return str(data[row])
+# app route when a user only inputs a specific location and it'll return
+# all the information about the country throughout the years
+@app.route('/search/l/<string:location>')
+def get_location_information(location: str) -> str:
+    getting_location_information = getData(location.strip(), None)
+    return str(getting_location_information)
 
 @app.errorhandler(404)
 def page_not_found(e):
@@ -48,8 +47,6 @@ def page_not_found(e):
 @app.errorhandler(500)
 def python_bug(e):
      return "Something went wrong in our Python code"
-
-
 
 if __name__ == '__main__':
     # load_data()

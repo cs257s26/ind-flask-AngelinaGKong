@@ -1,12 +1,11 @@
 '''
 A starter file for testing a Flask app
 Run with:
-python -m unittest flask_tests.py
+python -m unittest Tests/flask_tests.py
 '''
 
 from app import *
 import unittest
-# from ProductionCode.command_line import *
 
 class TestWaterData(unittest.TestCase):
     def test_route_homepage(self):

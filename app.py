@@ -8,7 +8,6 @@ app = Flask(__name__)
 PORT = 5100
 
 county_data = []
-
 region_data = []
 
 @app.route('/')

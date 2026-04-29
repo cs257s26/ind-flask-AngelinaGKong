@@ -3,29 +3,8 @@ import argparse
 
 waterRegions = []
 waterCountries = []
-# COUNTRYFILENAME = "./ProductionCode/Water_country.csv"
-# REGIONFILENAME = "./ProductionCode/Water_region.csv"
 
-# def main():
-# 	""" When you run this program, you'll pass in arguments like so:
-	
-# 		python3 command_line.py --location location/region --year year
-
-# 		Both arguments are optional, but you must have at least one.
-# 	"""
-# 	cla_parser = setUpParser()
-# 	args = cla_parser.parse_args()
-
-# 	loadData()
-
-# 	result = getData(args.location, args.year)
-
-# 	printData(result)
-	
-	
 def getData(location, year) -> list: 
-
-	loadData()
 
 	result = []
 	if (location == None and year == None):
@@ -99,7 +78,3 @@ def loadData():
 		csv_file = csv.reader(datafile)
 		for row in csv_file:
 			waterRegions.append(row)
-
-	
-# if __name__ == '__main__':
-# 	main()

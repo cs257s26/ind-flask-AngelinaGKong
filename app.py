@@ -2,26 +2,14 @@ from flask import Flask
 import csv
 from ProductionCode.command_line import *
 
+loadData()
+
 app = Flask(__name__)
 PORT = 5100
 
 county_data = []
 
 region_data = []
-
-# def load_data():
-#     '''Loads data from weather.csv into data global variable'''
-#     if len(county_data) == 0:
-#         with open('ProductionCode/Water_country.csv', newline='') as f:
-#             reader = csv.reader(f)
-#             for row in reader:
-#                 county_data.append(row)
-
-#     if len(region_data) == 0:
-#         with open('ProductionCode/Water_region.csv', newline='') as f:
-#             reader = csv.reader(f)
-#             for row in reader:
-#                 region_data.append(row)
 
 @app.route('/')
 def homepage():
@@ -53,5 +41,4 @@ def python_bug(e):
      return "Something went wrong in our Python code"
 
 if __name__ == '__main__':
-    # load_data()
     app.run(port=PORT)

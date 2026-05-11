@@ -22,7 +22,7 @@ def connect():
         exit()
     return connection
 
-def get_max_temp_over_threshold(connection, temp: float) -> list:
+def get_water_data_given_area(connection, temp: float) -> list:
     """Retrieves all dates (and all the weather information associated with those dates) where the high temperature was above a specified threshold.
 
     Args:

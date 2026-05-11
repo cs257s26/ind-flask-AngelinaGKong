@@ -1,3 +1,3 @@
-user = 'Angelina Kong'
-database = 'Angelina Kong'
+user = 'konga2'
+database = 'konga2'
 password = 'area672data'

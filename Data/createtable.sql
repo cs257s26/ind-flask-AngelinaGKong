@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS water_country;
-CREATE TABLE water_country (
+DROP TABLE IF EXISTS water_country_cleaned_again_again;
+CREATE TABLE water_country_cleaned_again_again (
     country TEXT,
     year_n REAL,
     population_n REAL,

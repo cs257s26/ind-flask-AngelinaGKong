@@ -22,7 +22,7 @@ def connect():
         exit()
     return connection
 
-def get_water_data_given_area(connection, temp: float) -> list:
+def get_year_and_location_sql(connection, year:int, location) -> list:
     """Retrieves all dates (and all the weather information associated with those dates) where the high temperature was above a specified threshold.
 
     Args:
@@ -34,8 +34,28 @@ def get_water_data_given_area(connection, temp: float) -> list:
     """
     try:
         cursor = connection.cursor()
-        query = "SELECT * FROM weather_small WHERE max_temp>%s ORDER BY max_temp DESC;"
-        cursor.execute(query, (temp,))
+        query = f"SELECT * FROM water_country_cleaned_again_again_with_utf8 WHERE country=%s AND year_n=%s;"
+        cursor.execute(query, (location, year,))
+        return cursor.fetchall()
+
+    except Exception as e:
+        print ("Something went wrong when executing the query: ", e)
+        return None
+
+def get_only_location_sql(connection, location) -> list:
+    """Retrieves all dates (and all the weather information associated with those dates) where the high temperature was above a specified threshold.
+
+    Args:
+        connection (psycopg2.connection) - the connection to the database
+        temp (float) - the minimum high temperature
+
+    Returns:
+        list - a list of all dates where the high temperature is greater or equal to temp, or None if the query fails.
+    """
+    try:
+        cursor = connection.cursor()
+        query = f"SELECT * FROM water_country_cleaned_again_again_with_utf8 WHERE country=%s;"
+        cursor.execute(query, (location,))
         return cursor.fetchall()
 
     except Exception as e:
@@ -47,11 +67,19 @@ def main():
     connection = connect()
 
     # Execute a simple query: how many earthquakes above the specified magnitude are there in the data?
-    results = get_max_temp_over_threshold(connection, 50)
+    year_and_location = get_year_and_location_sql(connection, 2000, "Afghanistan")
     
-    if results is not None:
+    location = get_only_location_sql(connection, "Afghanistan")
+
+    
+    if year_and_location is not None:
         print("Query results: ")
-        for item in results:
+        for item in year_and_location:
+            print(item)
+
+    if location is not None:
+        print("Query results: ")
+        for item in location:
             print(item)
 
     # Disconnect from database

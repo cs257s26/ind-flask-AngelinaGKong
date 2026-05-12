@@ -17,7 +17,7 @@ CREATE TABLE water_country (
 
 DROP TABLE IF EXISTS water_region;
 CREATE TABLE water_region (
-    country TEXT,
+    region TEXT,
     year_n INT,
     population_n INT,
     urban_percent REAL,

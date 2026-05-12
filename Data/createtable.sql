@@ -31,6 +31,3 @@ CREATE TABLE water_region (
     piped INT,
     not_piped INT
 );
-
-DROP TABLE IF EXISTS water_country_cleaned_again_again_with_utf8;
-DROP TABLE IF EXISTS weather_small;

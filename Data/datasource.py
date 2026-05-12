@@ -34,7 +34,7 @@ def get_year_and_location_sql(connection, year:int, location) -> list:
     """
     try:
         cursor = connection.cursor()
-        query = f"SELECT * FROM water_country_cleaned_again_again_with_utf8 WHERE country=%s AND year_n=%s;"
+        query = f"SELECT * FROM water_country WHERE country=%s AND year_n=%s;"
         cursor.execute(query, (location, year,))
         return cursor.fetchall()
 
@@ -54,7 +54,7 @@ def get_only_location_sql(connection, location) -> list:
     """
     try:
         cursor = connection.cursor()
-        query = f"SELECT * FROM water_country_cleaned_again_again_with_utf8 WHERE country=%s;"
+        query = f"SELECT * FROM water_country WHERE country=%s;"
         cursor.execute(query, (location,))
         return cursor.fetchall()
 

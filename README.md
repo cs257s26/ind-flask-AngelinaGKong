@@ -18,9 +18,11 @@ Example: http://127.0.0.1:5100/search/l/France
 Individual Database deliverable.
 
 One for the Country csv:
+
 \copy water_country FROM 'water_country.csv' DELIMITER ',' CSV HEADER
 
 One for the region csv:
+
 \copy water_region FROM 'water_region.csv' DELIMITER ',' CSV HEADER
 
 Why I did what I did: 
